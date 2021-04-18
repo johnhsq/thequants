@@ -23,12 +23,12 @@ def analyze_returns(net_returns):
     #       However, this performs a two-tailed t-test.
     #       You'll need to divde the p-value by 2 to get the results of a one-tailed p-value.
     null_hypothesis = 0.0
-    
-    return None
+    t,p= stats.ttest_1samp(net_returns, null_hypothesis, axis=0)
+    return t,p/2
     
 def test_run(filename='04.net_returns.csv'):
     """Test run analyze_returns() with net strategy returns from a file."""
-    net_returns = pd.Series.from_csv(filename, header=0)
+    net_returns = pd.read_csv('04.net_returns.csv', header=0)['return']
     t, p = analyze_returns(net_returns)
     print("t-statistic: {:.3f}\np-value: {:.6f}".format(t, p))
 
