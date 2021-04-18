@@ -12,6 +12,7 @@ print(float_arr)
 print(type(float_arr))
 print(float_arr.dtype)
 
+# cast float64 to int64
 int_arr = float_arr.astype(np.int64)
 
 print(int_arr)

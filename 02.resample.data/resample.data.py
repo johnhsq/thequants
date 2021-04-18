@@ -8,6 +8,7 @@ close = pd.Series(close_prices, dates)
 print(dates)
 print(close_prices)
 print(close)
+print('-'*50)
 
 # resample data every 3days with the first data
 print(close.resample('3D').first())
@@ -19,5 +20,5 @@ print(
     })
 )
 
-print('-----')
+print('-'*50)
 print(close.resample('W').max())
